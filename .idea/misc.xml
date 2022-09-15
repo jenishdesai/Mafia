@@ -6,9 +6,11 @@
         <entry key="..\:/Mafia/app/src/main/res/layout/activity_close_eyes.xml" value="0.2359375" />
         <entry key="..\:/Mafia/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Mafia/app/src/main/res/layout/activity_player_list.xml" value="0.25" />
+        <entry key="..\:/Mafia/app/src/main/res/layout/activity_player_name.xml" value="0.25" />
         <entry key="..\:/Mafia/app/src/main/res/layout/activity_player_role.xml" value="0.25" />
         <entry key="..\:/Mafia/app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="..\:/Mafia/app/src/main/res/layout/activity_start.xml" value="0.25" />
+        <entry key="..\:/Mafia/app/src/main/res/layout/layout_playerlist.xml" value="0.24895833333333334" />
       </map>
     </option>
   </component>
