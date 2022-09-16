@@ -14,7 +14,6 @@
         app:cardCornerRadius="8dp"
         app:cardElevation="2dp"
         app:strokeColor="#3D32BF"
-        android:backgroundTint="@color/black"
         app:strokeWidth="2dp">
 
         <TextView
@@ -23,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="5dp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20dp" />
 
     </com.google.android.material.card.MaterialCardView>

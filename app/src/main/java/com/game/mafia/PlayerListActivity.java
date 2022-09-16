@@ -26,6 +26,7 @@ public class PlayerListActivity extends AppCompatActivity {
 
     DatabaseReference databaseReference;
 
+
     List<ModelClass> arrayList;
 
     @Override
@@ -53,11 +54,16 @@ public class PlayerListActivity extends AppCompatActivity {
 
                     arrayList.add(model);
                 }
-
                 binding.recycler.setLayoutManager(new LinearLayoutManager(PlayerListActivity.this));
-                binding.recycler.setAdapter(new RecyclerAdapter(PlayerListActivity.this,arrayList));
+                RecyclerAdapter adapter = new RecyclerAdapter(PlayerListActivity.this,arrayList);
+                binding.recycler.setAdapter(adapter);
+
+                adapter.notifyDataSetChanged();
+
+
 
             }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

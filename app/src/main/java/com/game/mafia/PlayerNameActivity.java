@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -22,11 +23,11 @@ import java.util.List;
 public class PlayerNameActivity extends AppCompatActivity {
 
     ActivityPlayerNameBinding binding;
-
     DatabaseReference databaseReference;
-
-
     List<ModelClass> arrayList;
+
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,14 @@ public class PlayerNameActivity extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Player");
 
+        sharedPreferences = getSharedPreferences("Start",0);
+        editor = sharedPreferences.edit();
+
+        if (!sharedPreferences.getString("player","").matches("")){
+
+                startActivity(new Intent(PlayerNameActivity.this,StartActivity.class));
+        }
+
         binding.btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,7 +54,7 @@ public class PlayerNameActivity extends AppCompatActivity {
                 arrayList = new ArrayList<>();
 
                 PlayerName();
-                startActivity(new Intent(PlayerNameActivity.this,PlayerListActivity.class));
+                startActivity(new Intent(PlayerNameActivity.this,StartActivity.class));
 
             }
         });
@@ -57,11 +66,12 @@ public class PlayerNameActivity extends AppCompatActivity {
 
         if(!username.isEmpty()){
 
-            String id = databaseReference.push().getKey();
-
+            String id = "10";
             ModelClass model = new ModelClass(id,username);
-
             databaseReference.child(id).setValue(model);
+
+            editor.putString("player",username);
+            editor.commit();
 
             Toast.makeText(this, "Data Added", Toast.LENGTH_SHORT).show();
         }
